@@ -1,8 +1,8 @@
-// function MainInfo() {
+// function MainInfo(props) {
 //     return (
 //       <div>
-//         <h1>Country: Azerbaijan</h1>
-//         <h2>City: Baku</h2>
+//         <h1>Country: {props.country}</h1>
+//         <h2>City: {props.city}</h2>
 //       </div>
 //     );
 // }
@@ -17,8 +17,8 @@ class MainInfo extends Component {
   render() {
     return (
       <div>
-        <h1>Country: Azerbaijan</h1>
-        <h2>City: Baku</h2>
+        <h1>Country: {this.props.country}</h1>
+        <h2>City: {this.props.city}</h2>
       </div>
     );
   }
