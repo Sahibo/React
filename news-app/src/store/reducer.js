@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { configureStore } from '@reduxjs/toolkit';
 
 export const fetchContent = createAsyncThunk(
     'content/fetchContent',
@@ -22,11 +23,14 @@ const newsSlice = createSlice({
     initialState: {
         newsArr:[],
         isLoading:false,
-        error:null
+        error:null,
+        sortOrder: 'ASC'
     },
 
   reducers:{
-    
+    toggleSortOrder: (state) => {
+      state.sortOrder = state.sortOrder === 'ASC' ? 'DESC' : 'ASC';
+    },
 },
 extraReducers: (builder) => {
     builder.addCase(fetchContent.pending, (state) => {
@@ -43,5 +47,6 @@ extraReducers: (builder) => {
   },
 
 })
+
 
 export default newsSlice.reducer

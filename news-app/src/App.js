@@ -3,10 +3,12 @@ import { NewsList } from './NewsList';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContent } from './store/reducer';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NewsDetails from './NewsDetails';
+import Header from './Header';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
   let newsArr = useSelector((state) => state.news.newsArr);
   const loading = useSelector((state) => state.news.isLoading);
@@ -23,12 +25,14 @@ function App() {
     return <p>...LOADING</p>;
   }
 
+
   return (
-    <div>
+    <div className={darkMode ? 'dark' : 'light'}>
+      <Header setDarkMode={setDarkMode} darkMode={darkMode}/>
       <BrowserRouter>
         <Routes>
-          <Route path="/*" element={<NewsList newsArr={newsArr.articles} />}/>
-          <Route path='/details' element={<NewsDetails/>}/>
+          <Route path="/" element={<NewsList newsArr={newsArr.articles} />}/>
+          <Route path="details/:id" element={<NewsDetails newsArr={newsArr.articles} />} />
         </Routes>
       </BrowserRouter>
     </div>
