@@ -1,27 +1,28 @@
+import './Header.css';
 import './App.css';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleSortOrder  } from './store/reducer';
+import { toggleSortOrder  } from './store/reducer'
+import { React, useState } from 'react';
 
-export function Header({ darkMode, setDarkMode }) {
-    const changeTheme = () => {
-      setDarkMode(!darkMode);
-    }
+export function Header({ darkMode, setDarkMode  }) {
 
-    
-  const dispatch = useDispatch();
   const sortOrder = useSelector((state) => state.news.sortOrder);
-  
-    const toggleSortOrder = () => {
-        dispatch(toggleSortOrder()); // Use the correct action here
+  let dispatch = useDispatch()
+
+  const toggleSortOrderHandle = () => {
+    dispatch(toggleSortOrder());
+  }
+
+  const changeTheme = () => {
+      setDarkMode(!darkMode);
     }
   
     return (
-      <div>
-      <button onClick={toggleSortOrder}>
-          {sortOrder === 'ASC' ? 'Oldest to Newest' : 'Newest to Oldest'}
-      </button>
-        <button onClick={changeTheme}>Change Theme</button>
+      <div className='header-container'>
+        <button className='sortButton' onClick={toggleSortOrderHandle}>
+          {sortOrder === 'ASC' ? 'Oldest to Newest ▼' : 'Newest to Oldest ▲'}
+        </button>
+        <button className='themeButton' onClick={changeTheme}>{darkMode ? '🌜' : '🌞'}</button>
       </div>
     );
   }

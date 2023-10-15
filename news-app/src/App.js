@@ -6,6 +6,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import NewsDetails from './NewsDetails';
 import Header from './Header';
+import { toggleSortOrder } from './store/reducer';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,8 +28,8 @@ function App() {
 
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
-      <Header setDarkMode={setDarkMode} darkMode={darkMode}/>
+    <div className={darkMode ? 'app dark' : 'app light'}>
+      <Header setDarkMode={setDarkMode} darkMode={darkMode} newsArr={newsArr.articles} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NewsList newsArr={newsArr.articles} />}/>

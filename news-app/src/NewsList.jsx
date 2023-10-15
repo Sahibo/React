@@ -5,9 +5,8 @@ import { Link, Routes, Route } from 'react-router-dom';
 import NewsDetails from './NewsDetails';
 
 export function NewsList({ newsArr }) {
-    
     return (
-        <div>
+        <div className='app-container' >
             {Array.isArray(newsArr) && newsArr.length > 0 ? (
                 newsArr.map((article, index) => (
                     <Link to={`details/${index}`} key={index}>
