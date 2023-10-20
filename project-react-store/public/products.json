@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Bedroom",
+    "subcategories": [
+      {
+        "name": "Air Beds",
+        "products": [
+          {
+            "name": "ComfortAir Inflatable Air Bed",
+            "description": "A comfortable and versatile inflatable air bed.",
+            "price": 89.99
+          },
+          {
+            "name": "Luxury Adjustable Air Mattress",
+            "description": "A high-end adjustable air mattress for a restful night's sleep.",
+            "price": 299.99
+          }
+        ]
+      },
+      {
+        "name": "Bed Bases",
+        "products": [
+          {
+            "name": "Basic Wooden Bed Base",
+            "description": "A simple wooden bed base for your mattress.",
+            "price": 129.99
+          },
+          {
+            "name": "Adjustable Bed Base with Remote",
+            "description": "An adjustable bed base with a remote control for personalized comfort.",
+            "price": 349.99
+          }
+        ]
+      },
+      {
+        "name": "Bed Frames",
+        "products": [
+          {
+            "name": "Metal Platform Bed Frame",
+            "description": "A sturdy metal bed frame for your mattress.",
+            "price": 79.99
+          },
+          {
+            "name": "Wooden Sleigh Bed Frame",
+            "description": "A classic wooden sleigh bed frame for a timeless look.",
+            "price": 199.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bathroom",
+    "subcategories": [
+      {
+        "name": "Bath Mats",
+        "products": [
+          {
+            "name": "Soft Microfiber Bath Mat",
+            "description": "A plush microfiber bath mat for a cozy bathroom experience.",
+            "price": 19.99
+          },
+          {
+            "name": "Memory Foam Non-Slip Bath Rug",
+            "description": "A memory foam bath rug with non-slip backing for safety.",
+            "price": 29.99
+          }
+        ]
+      },
+      {
+        "name": "Bathrobes/Slippers",
+        "products": [
+          {
+            "name": "Luxury Terry Cloth Bathrobe",
+            "description": "A luxurious terry cloth bathrobe for spa-like comfort.",
+            "price": 49.99
+          },
+          {
+            "name": "Plush Spa Slippers",
+            "description": "Soft and cozy spa slippers for ultimate relaxation.",
+            "price": 14.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Office",
+    "subcategories": []
+  },
+  {
+    "name": "Living Room",
+    "subcategories": []
+  },
+  {
+    "name": "Dining Room",
+    "subcategories": []
+  },
+  {
+    "name": "Storage",
+    "subcategories": []
+  }
+]
