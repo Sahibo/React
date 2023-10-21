@@ -6,6 +6,11 @@
         "name": "Air Beds",
         "products": [
           {
+            "name": "test",
+            "description": "A p.",
+            "price": 99.99
+          },
+          {
             "name": "ComfortAir Inflatable Air Bed",
             "description": "A comfortable and versatile inflatable air bed.",
             "price": 89.99

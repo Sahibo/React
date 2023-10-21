@@ -23,8 +23,25 @@ const productsSlice = createSlice({
         addObject: (state, action) => {
             let newarr = [...state.arr]
             newarr.push(action.payload)
-            return {...state, arr: newarr}
+            return { ...state, arr: newarr }
         },
+        handleSort: (state, action) => {
+            const newArr = [...state.categoriesArr].map((category) => ({
+                ...category,
+                subcategories: category.subcategories.map((subcategory) => ({
+                    ...subcategory,
+                    products: [...subcategory.products].sort((a, b) => {
+                        if (action.payload === 'Sort by price to increase') {
+                            return a.price - b.price;
+                        } else if (action.payload === 'Sort by price to decrease') {
+                            return b.price - a.price;
+                        }
+                    }),
+                })),
+            }));
+            return { ...state, categoriesArr: newArr };
+        }
+
     },
     extraReducers: (builder) => {
         builder.addCase(fetchContent.pending, (state) => {
@@ -42,4 +59,6 @@ const productsSlice = createSlice({
 
 })
 
+
+export const { handleSort } = productsSlice.actions
 export default productsSlice.reducer

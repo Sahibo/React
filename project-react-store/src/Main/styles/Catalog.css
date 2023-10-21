@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.catalog-container {
+    padding: 0 100px;
+    height: 30px;
+    background-color: #ccc5b9;
+}
+
+.categories-container {
+    height: 100%;
+}
+
+.categories-list {
+    display: flex;
+    justify-content: space-between;
+    
+    list-style: none;
+    height: 100%;
+}
+
+.category {
+    display: flex;
+    flex: 1;
+    text-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.category:hover {
+    background-color: #403d39;
+    color: #fffcf2;
+}
+
