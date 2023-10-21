@@ -3,37 +3,123 @@
     padding: 0;
 }
 
+li a{
+    color: #403d39;
+    
+}
+
+li {
+    list-style: none;
+}
+
 .catalog-container {
     padding: 0 100px;
+    height: calc(100vh - 50px);
+    background-color: #ede9e1;
+}
+
+.categories-container {
     height: 30px;
     background-color: #ccc5b9;
 }
 
-.categories-container {
-    height: 100%;
+.categories-container a {
+    color: #403d39;
+    font-size: 20px;
+    
 }
 
 .categories-list {
     display: flex;
+    text-align: center;
     justify-content: space-between;
-    
-    list-style: none;
     height: 100%;
+    gap: 15px;
 }
 
 .category {
-    display: flex;
+    display: inline-block;
+    text-align: center;
     flex: 1;
     text-wrap: nowrap;
     text-align: center;
     align-items: center;
     height: 100%;
     width: 100%;
-}
+    cursor: pointer;
 
+}
 
 .category:hover {
     background-color: #403d39;
     color: #fffcf2;
 }
 
+.content-container {
+    display: flex;
+    height: calc(100% - 30px);
+    gap: 10px;
+}
+
+.side-container {
+    height: 100%;
+    width: 20%;
+    background-color: #fffcf2;
+}
+
+.side-container ul li {
+    border-bottom: #403d395e 1px solid;
+    padding: 10px 5px;
+}
+
+.side-container ul li a {
+    font-size: 16px;
+}
+
+.side-container ul li a:hover {
+    text-decoration: underline;
+}
+
+.products-sort {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: #403d395e 1px solid;
+}
+
+.select-box {
+    background-color: #ccc5b9;
+    border-color: #403d39;
+    color: #403d39;
+    margin-bottom: 10px;
+    
+}
+
+.products-outer-container {
+    width: 80%;
+    padding: 10px;
+    background-color: #fffcf2;
+}
+
+.products-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    
+    border: #403d39 1px solid;
+}
+
+.product-item {
+    border: #403d39 1px solid;
+    flex-basis: calc(33.33% - 20px); /* Adjust the width as needed */
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.product-item {
+    padding: 10px;
+    border: #403d39 1px solid;
+    background-color: #fff;
+    text-align: center;
+}
