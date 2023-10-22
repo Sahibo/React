@@ -9,9 +9,9 @@ export function Header() {
                 
                 <ul className="nav-list">
                     <li className="nav-list-item"><Link to='/'><span>Catalog</span></Link></li>
-                    <li className="nav-list-item"><span>About Us</span></li>
+                    <li className="nav-list-item"><a>About Us</a></li>
                     <li className="nav-list-item"><Link to='/myBag'><span>My bag</span></Link></li>
-                    <li className="nav-list-item"><span>Account</span></li>
+                    <li className="nav-list-item"><a>Account</a></li>
                 </ul>
             </nav>
         </header>

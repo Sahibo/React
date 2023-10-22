@@ -1,0 +1,9 @@
+.footer-container {
+    padding: 10px 100px;
+    background-color: #1E3A8A;
+    color: #FFFFFF;
+}
+
+.footer-title {
+    border-bottom: #333333 1px solid;
+}

@@ -161,13 +161,23 @@ export function Catalog() {
             {showAll === true || productsList.length > 0 ? (
               <div className="products-list">
                 {productsList.map((product, index) => (
-                  <div key={index} className="product-item" onClick={() => handleAddToBag(product)}>
+                  <div key={index} className="product-item">
                     <div className="product-img-container">
                       <img src="https://cdn2.jysk.com/getimage/wd2.medium/202326" className="product-img"></img>
                     </div>
                     <div className="product-info-container">
-                      <p>Name: {product.name}</p>
-                      <p>Price: {product.price}</p>
+                      <div>
+                        <h3>{product.name}</h3>
+                      </div>
+                      <div>
+                        <span>{product.description}</span>
+                      </div>
+                      <div>
+                      <p>{product.price}$</p>
+                      </div>
+                    </div>
+                    <div className="add-to-bag-container" onClick={() => handleAddToBag(product)}>
+                      Add to bag
                     </div>
                   </div>
                 ))}

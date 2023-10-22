@@ -89,12 +89,6 @@
             "name": "Luxury Terry Cloth Bathrobe",
             "description": "A luxurious terry cloth bathrobe for spa-like comfort.",
             "price": 49.99
-          },
-          {
-            "id": 11,
-            "name": "Plush Spa Slippers",
-            "description": "Soft and cozy spa slippers for ultimate relaxation.",
-            "price": 14.99
           }
         ]
       }
