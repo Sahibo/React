@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContent, handleSort } from "../store/reducer";
+import { fetchContent, addToBag } from "../store/reducer";
 import "./styles/Catalog.css";
 
 export function Catalog() {
   const dispatch = useDispatch();
   const dataArr = useSelector((state) => state.products.dataArr);
+  const basketArr = useSelector((state) => state.products.basketArr);
   const [sortByPrice, setSortByPrice] = useState({
     increase: "Sort by price to increase",
     decrease: "Sort by price to decrease",
@@ -21,6 +22,8 @@ export function Catalog() {
 
   useEffect(() => {
     dispatch(fetchContent());
+    console.log(dataArr);
+    console.log(basketArr);
   }, [dispatch]);
 
   useEffect(() => {
@@ -150,9 +153,14 @@ export function Catalog() {
             {showAll === true || productsList.length > 0 ? (
               <div className="products-list">
                 {productsList.map((product, index) => (
-                  <div key={index} className="product-item">
-                    <p>Name: {product.name}</p>
-                    <p>Price: {product.price}</p>
+                  <div key={index} className="product-item" onClick={dispatch(addToBag())}>
+                    <div className="product-img-container">
+                      <img src="https://cdn2.jysk.com/getimage/wd2.medium/202326" className="product-img"></img>
+                    </div>
+                    <div className="product-info-container">
+                      <p>Name: {product.name}</p>
+                      <p>Price: {product.price}</p>
+                    </div>
                   </div>
                 ))}
               </div>

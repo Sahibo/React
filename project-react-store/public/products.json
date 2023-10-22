@@ -19,6 +19,20 @@
             "name": "Luxury Adjustable Air Mattress",
             "description": "A high-end adjustable air mattress for a restful night's sleep.",
             "price": 299.99
+          },{
+            "name": "test",
+            "description": "A p.",
+            "price": 99.99
+          },
+          {
+            "name": "ComfortAir Inflatable Air Bed",
+            "description": "A comfortable and versatile inflatable air bed.",
+            "price": 89.99
+          },
+          {
+            "name": "Luxury Adjustable Air Mattress",
+            "description": "A high-end adjustable air mattress for a restful night's sleep.",
+            "price": 299.99
           }
         ]
       },

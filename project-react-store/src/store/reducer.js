@@ -15,6 +15,7 @@ const productsSlice = createSlice({
     initialState: {
         dataArr: [],
         productsArr: [],
+        basketArr: [],
         isLoading: false,
         error: null,
     },
@@ -25,6 +26,11 @@ const productsSlice = createSlice({
             newarr.push(action.payload)
             return { ...state, arr: newarr }
         },
+        addToBag: (state, action) => {
+            let newarr = [...state.basketArr]
+            newarr.push(action.payload)
+            return { ...state, basketArr: newarr }
+        }
 
     },
     extraReducers: (builder) => {
@@ -44,5 +50,5 @@ const productsSlice = createSlice({
 })
 
 
-export const { handleSort } = productsSlice.actions
+export const { handleSort, addToBag } = productsSlice.actions
 export default productsSlice.reducer
