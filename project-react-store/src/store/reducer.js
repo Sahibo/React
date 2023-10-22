@@ -13,7 +13,7 @@ export const fetchContent = createAsyncThunk(
 const productsSlice = createSlice({
     name: 'products',
     initialState: {
-        categoriesArr: [],
+        dataArr: [],
         productsArr: [],
         isLoading: false,
         error: null,
@@ -25,22 +25,6 @@ const productsSlice = createSlice({
             newarr.push(action.payload)
             return { ...state, arr: newarr }
         },
-        handleSort: (state, action) => {
-            const newArr = [...state.categoriesArr].map((category) => ({
-                ...category,
-                subcategories: category.subcategories.map((subcategory) => ({
-                    ...subcategory,
-                    products: [...subcategory.products].sort((a, b) => {
-                        if (action.payload === 'Sort by price to increase') {
-                            return a.price - b.price;
-                        } else if (action.payload === 'Sort by price to decrease') {
-                            return b.price - a.price;
-                        }
-                    }),
-                })),
-            }));
-            return { ...state, categoriesArr: newArr };
-        }
 
     },
     extraReducers: (builder) => {
@@ -48,7 +32,7 @@ const productsSlice = createSlice({
             state.isLoading = true
         })
         builder.addCase(fetchContent.fulfilled, (state, action) => {
-            state.categoriesArr = action.payload
+            state.dataArr = action.payload
             state.isLoading = false
         })
         builder.addCase(fetchContent.rejected, (state, action) => {

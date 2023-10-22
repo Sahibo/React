@@ -5,29 +5,41 @@ import "./styles/Catalog.css";
 
 export function Catalog() {
   const dispatch = useDispatch();
-  let data = useSelector((state) => state.products.categoriesArr);
-  let [sortByPrice, setSortByPrice] = useState({
+  const dataArr = useSelector((state) => state.products.dataArr);
+  const [sortByPrice, setSortByPrice] = useState({
     increase: "Sort by price to increase",
     decrease: "Sort by price to decrease",
   });
-  let [productsList, setProductsList] = useState([]);
-  let [selectedCategory, setSelectedCategory] = useState("Bedroom");
-  let [subcategory, setSubcategory] = useState("");
-  let [showAll, setShowAll] = useState(true);
+  const [productsList, setProductsList] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("Bedroom");
+  const [subcategory, setSubcategory] = useState("");
+  const [showAll, setShowAll] = useState(true);
+
+  const filteredSubcategories = dataArr.find(
+    (category) => category.name === selectedCategory
+  )?.subcategories;
 
   useEffect(() => {
     dispatch(fetchContent());
-  }, []);
+  }, [dispatch]);
 
-  const filteredSubcategories = data.find(
-    (category) => category.name === selectedCategory
-  )?.subcategories;
+  useEffect(() => {
+    const selectedCategoryData = dataArr.find(
+      (categoryData) => categoryData.name === selectedCategory
+    );
+
+    if (selectedCategoryData) {
+      const allProducts = selectedCategoryData.subcategories.flatMap(
+        (subcategory) => subcategory.products
+      );
+      setProductsList(allProducts);
+    }
+  }, [dataArr, selectedCategory]);
 
   const handleCategoryChange = (e, category) => {
     e.preventDefault();
     setSelectedCategory(category);
-    setProductsList([]);
-    setShowAll(false);
+    setShowAll(true);
   };
 
   const setSelectedSubcategory = (e, subcategory) => {
@@ -35,34 +47,60 @@ export function Catalog() {
     setSubcategory(subcategory);
     setShowAll(false);
 
+    const selectedCategoryData = dataArr.find(
+      (categoryData) => categoryData.name === selectedCategory
+    );
     const products =
-      data
-        .find((category) => category.name === selectedCategory)
-        ?.subcategories.find((sub) => sub.name === subcategory)?.products || [];
-
+      selectedCategoryData?.subcategories.find(
+        (sub) => sub.name === subcategory
+      )?.products || [];
     setProductsList(products);
   };
 
   const showAllProducts = (e) => {
     e.preventDefault();
     setShowAll(true);
+
+    const selectedCategoryData = dataArr.find(
+      (categoryData) => categoryData.name === selectedCategory
+    );
+
+    if (selectedCategoryData) {
+      const allProducts = selectedCategoryData.subcategories.flatMap(
+        (subcategory) => subcategory.products
+      );
+      setProductsList(allProducts);
+    }
+  };
+
+  const myHandleSort = (e) => {
+    const sortedProductsArr = [...productsList];
+
+    if (e.target.value === "Sort by price to increase") {
+      sortedProductsArr.sort((a, b) => a.price - b.price);
+    } else if (e.target.value === "Sort by price to decrease") {
+      sortedProductsArr.sort((a, b) => b.price - a.price);
+    }
+
+    setProductsList(sortedProductsArr);
   };
 
   return (
     <div className="catalog-container">
       <div className="categories-container">
         <ul className="categories-list">
-          {Array.isArray(data) && data.length > 0 ? (
-            data.map((category, index) => (
-              <li className="category" key={index}>
-                <a
-                  onClick={(e) => handleCategoryChange(e, category.name)}
-                  className="category"
-                  href=""
-                  key={index}>
-                  {category.name}
-                </a>
-              </li>
+          {Array.isArray(dataArr) && dataArr.length > 0 ? (
+            dataArr.map((category, index) => (
+              <a
+                onClick={(e) => handleCategoryChange(e, category.name)}
+                className={`category ${
+                  category.name === selectedCategory ? "selected" : ""
+                }`}
+                href=""
+                key={index}
+              >
+                {category.name}
+              </a>
             ))
           ) : (
             <p>Error</p>
@@ -82,10 +120,13 @@ export function Catalog() {
 
               {filteredSubcategories.map((subcategory, index) => (
                 <li className="subcategory">
-                  <a onClick={(e) => setSelectedSubcategory(e, subcategory.name)}
-                    href="" key={index}>
-                      {subcategory.name}
-                    </a>
+                  <a
+                    onClick={(e) => setSelectedSubcategory(e, subcategory.name)}
+                    href=""
+                    key={index}
+                  >
+                    {subcategory.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -95,7 +136,7 @@ export function Catalog() {
         <div className="products-outer-container">
           <div className="products-sort">
             <span>{productsList.length} products</span>
-            <select onChange={(e) => dispatch(handleSort(e.target.value))} className="select-box">
+            <select onChange={(e) => myHandleSort(e)} className="select-box">
               <option value={sortByPrice.increase}>
                 {sortByPrice.increase}
               </option>
@@ -106,27 +147,14 @@ export function Catalog() {
           </div>
 
           <div className="products-container">
-            {showAll ? (
+            {showAll === true || productsList.length > 0 ? (
               <div className="products-list">
-                  {data.map((category) =>
-                    category.subcategories.map((subcategory) =>
-                      subcategory.products.map((product, index) => (
-                        <div key={index} className="product-item">
-                          <p>Name: {product.name}</p>
-                          <p>Price: {product.price}</p>
-                        </div>
-                      ))
-                    )
-                  )}
-              </div>
-            ) : productsList.length > 0 ? (
-              <div className="products-list">
-                  {productsList.map((product, index) => (
-                    <div key={index} className="product-item">
-                      <p>Name: {product.name}</p>
-                      <p>Price: {product.price}</p>
-                    </div>
-                  ))}
+                {productsList.map((product, index) => (
+                  <div key={index} className="product-item">
+                    <p>Name: {product.name}</p>
+                    <p>Price: {product.price}</p>
+                  </div>
+                ))}
               </div>
             ) : null}
           </div>
