@@ -1,0 +1,48 @@
+/* CSS for your React component */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button {
+  margin: 20px;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal-input {
+  margin-bottom: 10px;
+}
+
+.modal-button {
+  margin-top: 10px;
+}
+
+/* Centered modal dialog */
+.ant-modal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for modal title */
+.ant-modal-title {
+  font-size: 1.5rem;
+}
+
+/* Style for modal content */
+.ant-modal-content {
+  padding: 20px;
+}
+
+/* Style for modal footer */
+.ant-modal-footer {
+  text-align: center;
+}
+
+/* Add any additional styles you need here */
