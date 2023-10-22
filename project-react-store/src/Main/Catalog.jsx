@@ -22,9 +22,11 @@ export function Catalog() {
 
   useEffect(() => {
     dispatch(fetchContent());
-    console.log(dataArr);
-    console.log(basketArr);
   }, [dispatch]);
+
+  useEffect(() => {
+    console.log(basketArr);
+  }, [basketArr]);
 
   useEffect(() => {
     const selectedCategoryData = dataArr.find(
@@ -88,6 +90,12 @@ export function Catalog() {
     setProductsList(sortedProductsArr);
   };
 
+
+  const handleAddToBag = (product) => 
+  {
+    dispatch(addToBag(product))
+  }
+
   return (
     <div className="catalog-container">
       <div className="categories-container">
@@ -122,7 +130,7 @@ export function Catalog() {
               </li>
 
               {filteredSubcategories.map((subcategory, index) => (
-                <li className="subcategory">
+                <li className="subcategory" key={index}>
                   <a
                     onClick={(e) => setSelectedSubcategory(e, subcategory.name)}
                     href=""
@@ -153,7 +161,7 @@ export function Catalog() {
             {showAll === true || productsList.length > 0 ? (
               <div className="products-list">
                 {productsList.map((product, index) => (
-                  <div key={index} className="product-item" onClick={dispatch(addToBag())}>
+                  <div key={index} className="product-item" onClick={() => handleAddToBag(product)}>
                     <div className="product-img-container">
                       <img src="https://cdn2.jysk.com/getimage/wd2.medium/202326" className="product-img"></img>
                     </div>

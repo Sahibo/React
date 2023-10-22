@@ -6,30 +6,19 @@
         "name": "Air Beds",
         "products": [
           {
+            "id": 1,
             "name": "test",
             "description": "A p.",
             "price": 99.99
           },
           {
+            "id": 2,
             "name": "ComfortAir Inflatable Air Bed",
             "description": "A comfortable and versatile inflatable air bed.",
             "price": 89.99
           },
           {
-            "name": "Luxury Adjustable Air Mattress",
-            "description": "A high-end adjustable air mattress for a restful night's sleep.",
-            "price": 299.99
-          },{
-            "name": "test",
-            "description": "A p.",
-            "price": 99.99
-          },
-          {
-            "name": "ComfortAir Inflatable Air Bed",
-            "description": "A comfortable and versatile inflatable air bed.",
-            "price": 89.99
-          },
-          {
+            "id": 3,
             "name": "Luxury Adjustable Air Mattress",
             "description": "A high-end adjustable air mattress for a restful night's sleep.",
             "price": 299.99
@@ -40,11 +29,13 @@
         "name": "Bed Bases",
         "products": [
           {
+            "id": 4,
             "name": "Basic Wooden Bed Base",
             "description": "A simple wooden bed base for your mattress.",
             "price": 129.99
           },
           {
+            "id": 5,
             "name": "Adjustable Bed Base with Remote",
             "description": "An adjustable bed base with a remote control for personalized comfort.",
             "price": 349.99
@@ -55,11 +46,13 @@
         "name": "Bed Frames",
         "products": [
           {
+            "id": 6,
             "name": "Metal Platform Bed Frame",
             "description": "A sturdy metal bed frame for your mattress.",
             "price": 79.99
           },
           {
+            "id": 7,
             "name": "Wooden Sleigh Bed Frame",
             "description": "A classic wooden sleigh bed frame for a timeless look.",
             "price": 199.99
@@ -75,11 +68,13 @@
         "name": "Bath Mats",
         "products": [
           {
+            "id": 8,
             "name": "Soft Microfiber Bath Mat",
             "description": "A plush microfiber bath mat for a cozy bathroom experience.",
             "price": 19.99
           },
           {
+            "id": 9,
             "name": "Memory Foam Non-Slip Bath Rug",
             "description": "A memory foam bath rug with non-slip backing for safety.",
             "price": 29.99
@@ -90,11 +85,13 @@
         "name": "Bathrobes/Slippers",
         "products": [
           {
+            "id": 10,
             "name": "Luxury Terry Cloth Bathrobe",
             "description": "A luxurious terry cloth bathrobe for spa-like comfort.",
             "price": 49.99
           },
           {
+            "id": 11,
             "name": "Plush Spa Slippers",
             "description": "Soft and cozy spa slippers for ultimate relaxation.",
             "price": 14.99
